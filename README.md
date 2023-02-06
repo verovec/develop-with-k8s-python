@@ -57,7 +57,7 @@ This repository shows you how to locally develop your application inside local K
     make delete
     ```
 
-4. delete evenrything in your system about this project
+4. delete everything in your system about this project
     ```bash
     make cleanup
     ```
