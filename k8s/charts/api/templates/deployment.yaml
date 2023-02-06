@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: api
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name | quote }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace | quote }}
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: {{ .Values.api.replicas }}
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: api
+        image: {{ printf "%s/%s:%s" .Values.registry.endpoint .Values.api.image.name .Values.api.image.tag | quote }}
+        imagePullPolicy: Always
+        resources:
+        {{ if .Values.api.resources.enabled }}
+          limits:
+            cpu: {{ .Values.api.resources.limits.cpu | quote }}
+            memory: {{ .Values.api.resources.limits.memory | quote }}
+          requests:
+            cpu: {{ .Values.api.resources.requests.cpu | quote }}
+            memory: {{ .Values.api.resources.requests.memory | quote }}
+        {{ else }}
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "500Mi"
+        {{ end }}
+        ports:
+          - containerPort: 8080
+        imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          periodSeconds: 10
+          failureThreshold: 10

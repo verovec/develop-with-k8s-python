@@ -1,0 +1,14 @@
+name: api
+
+apiVersion: v1
+type: application
+version: 0.0.1
+
+
+description: develop with k8s
+home: https://github.com/verovec/develop-with-k8s
+
+
+maintainers:
+- email: verove.clement@gmail.com
+  name: Clement
