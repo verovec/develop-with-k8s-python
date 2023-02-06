@@ -20,6 +20,9 @@ dev:
 	@devspace use namespace api
 	@devspace dev --dependency api
 
+cleanup-images:
+	@devspace cleanup images
+
 delete:
 	@k3d cluster delete $(CLUSTER_NAME)
 
