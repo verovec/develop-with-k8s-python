@@ -1,0 +1,55 @@
+version: v2beta1
+
+require:
+  devspace: '6.2.5'
+
+images:
+  api:
+    image: k3d-develop-with-k8s.localhost:5111/api
+    dockerfile: api/Dockerfile
+    context: api
+    tags:
+      - dev-${DEVSPACE_RANDOM}
+
+dev:
+  api:
+    labelSelector:
+      app: api
+    namespace: api
+    container: api
+    sync:
+      - path: api/src:/app
+    logs:
+      lastLines: 100
+
+deployments:
+  api:
+    namespace: api
+    helm:
+      chart:
+        name: api
+        path: k8s/charts/api
+      values:
+        domain: develop-with-k8s.local
+        registry:
+          host: k3d-develop-with-k8s.localhost:5111
+          endpoint: k3d-develop-with-k8s.localhost:5111
+        global:
+          storageClass: local-path
+        api:
+          image:
+            name: api
+            tag: dev-${DEVSPACE_RANDOM}
+            pullPolicy: Always
+          replicas: 1
+          resources:
+            enabled: true
+            limits:
+              cpu: 0.5
+              memory: 512Mi
+            requests:
+              cpu: 0.1
+              memory: 256Mi
+          scaler:
+            minReplicas: 1
+            maxReplicas: 5
