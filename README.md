@@ -1,6 +1,6 @@
 # Develop With K8s
 
-This repository shows you how to locally develop your application inside local Kubernetes cluster with hot reload
+This repository shows you how to locally develop your application inside local Kubernetes cluster with auto-reload
 
 
 ## Prerequisites
