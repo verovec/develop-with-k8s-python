@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">develop-with-k8s-python</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="65%">
+      <stop offset="0" stop-color="#1e3a5f"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <clipPath id="disc"><circle cx="80" cy="80" r="74"/></clipPath>
+  </defs>
+  <circle cx="80" cy="80" r="74" fill="url(#bg)"/>
+  <g clip-path="url(#disc)" fill="none" stroke="#fbbf24" stroke-opacity="0.16" stroke-width="1.5">
+    <circle cx="80" cy="80" r="60"/>
+    <circle cx="80" cy="80" r="44"/>
+    <circle cx="80" cy="80" r="28"/>
+  </g>
+  <g fill="none" stroke="#f8fafc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="80" cy="80" r="22"/>
+    <circle cx="80" cy="80" r="7"/>
+    <path d="M80 73 V44 M80 87 V116"/>
+    <path d="M86.06 76.5 L111.18 62 M73.94 83.5 L48.82 98 M86.06 83.5 L111.18 98 M73.94 76.5 L48.82 62"/>
+  </g>
+  <g fill="#f8fafc">
+    <circle cx="80" cy="42" r="2.8"/><circle cx="80" cy="118" r="2.8"/>
+    <circle cx="112.9" cy="61" r="2.8"/><circle cx="47.1" cy="99" r="2.8"/>
+    <circle cx="112.9" cy="99" r="2.8"/><circle cx="47.1" cy="61" r="2.8"/>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 30 A50 50 0 1 0 130 80"/>
+    <path d="M122 88 L130 80 L138 88"/>
+  </g>
+  <g transform="translate(38 118)">
+    <circle cx="0" cy="0" r="11" fill="#0b1220" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M-5 2 C-5 -3 5 -3 5 2" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="-3" cy="-4" r="1.6" fill="#fbbf24"/><circle cx="3" cy="-4" r="1.6" fill="#fbbf24"/>
+  </g>
+  <circle cx="80" cy="80" r="74" fill="none" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="2"/>
+</svg>
